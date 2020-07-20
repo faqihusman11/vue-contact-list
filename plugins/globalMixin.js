@@ -29,7 +29,7 @@ export default function(_, inject) {
   }
 
   function accessToken() {
-    return "1qHRq6nARzSyb4M_5slUD4c2wdmkmnjWEkHg";
+    return "";
   }
 
   const fns = {
