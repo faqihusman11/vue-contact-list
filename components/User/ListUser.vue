@@ -6,9 +6,22 @@
     :items-per-page="5"
     class="elevation-2"
     :loading="users.isPending"
+    :search="search"
     item-key="id"
   >
-    <template v-slot:item.name="{ item }">
+    <template v-slot:top>
+      <v-toolbar flat color="white">
+        <v-spacer></v-spacer>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-toolbar>
+    </template>
+    <template v-slot:item.first_name="{ item }">
       <v-tooltip color="primary" right>
         <template v-slot:activator="{ on }">
           <span
@@ -48,7 +61,7 @@ export default {
     headers: [
       {
         text: "Full Name",
-        value: "name"
+        value: "first_name"
       },
       {
         text: "Email",
@@ -71,6 +84,7 @@ export default {
         value: "dob"
       }
     ],
+    search: "",
     detailModal: false
   }),
   created() {
